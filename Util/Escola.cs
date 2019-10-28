@@ -38,9 +38,7 @@ namespace Projeto.teste.Util
                     }
                 case "4":
                     {
-                        Turma turma = new Turma().CriarTurma(this);
-                        if (turma == null) break;
-                        Turmas.Add(turma);
+                        MenuTurma();
                         break;
                     }
                 case "0":
@@ -55,7 +53,6 @@ namespace Projeto.teste.Util
             Arquivo.SalvarOuLer(this);
             MenuPrincipal();
         }
-
 
         public void MenuAluno()
         {
@@ -284,6 +281,67 @@ namespace Projeto.teste.Util
                             string decisao = Console.ReadLine();
                             if (decisao == "") break;
                             Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).RemoverCoordenador();
+                        }
+                        catch (ArgumentNullException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Turma não existe");
+                        }
+                        catch (Exception)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Valores Invalidos");
+                        }
+                        break;
+                    }
+                case "0":
+                    {
+                        MenuPrincipal();
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Opção invalida");
+                        break;
+                    }
+            }
+            Arquivo.SalvarOuLer(this);
+            MenuCoordenador();
+        }
+
+        public void MenuTurma()
+        {
+            Console.WriteLine("Digite 1 para cadastrar um coordenado \nDigite 2 para ver todos os turmas \nDigite 3 mostrar informações da turma\nDigite 0 para voltar ao menu principal");
+            Controle = Console.ReadLine();
+
+            switch (Controle)
+            {
+                case "1":
+                    {
+                        Turma turma = new Turma().CriarTurma(this);
+                        if (turma == null) break;
+                        Turmas.Add(turma);
+                        break;
+                    }
+                case "2":
+                    {
+                        Console.WriteLine("lista de Turmas");
+                        Turmas.ForEach(c => Console.WriteLine($"Turma:{c.NumTurma}  Nome do coordenador:{(c.Coordenador==null? "Não ha professor" : c.Coordenador.Nome)} Nome do Professor:{(c.Professor==null?"Não ha professor":c.Professor.Nome)}"));
+                        Console.WriteLine("Pressione Enter para voltar ao menu");
+                        Console.ReadLine();
+                        break;
+                    }
+                case "3":
+                    {
+                        if (Turmas.Count == 0) { Console.WriteLine("Registre uma turma primeiro"); break; }
+                        try
+                        {
+                            Console.WriteLine("Turmas:");
+                            Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
+                            Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
+                            string decisao = Console.ReadLine();
+                            if (decisao == "") break;
+                            Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirCoordenador(Coordenadores);
                         }
                         catch (ArgumentNullException)
                         {

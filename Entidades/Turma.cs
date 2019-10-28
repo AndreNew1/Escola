@@ -11,7 +11,7 @@ namespace Projeto.teste.Entidades
         public Professor Professor { get; set; }
         public Coordenador Coordenador { get; set; }
         public List<Aluno> Alunos { get; set; }
-
+        private int MaxAlunos {get;set;}
         public Turma CriarTurma(Escola Escola)
         {
             while (NumTurma == 0 || Escola.Turmas.Any(x => x.NumTurma == NumTurma))
@@ -24,7 +24,7 @@ namespace Projeto.teste.Entidades
                     Console.WriteLine($"Quantos Alunos a turma terá? Ou pressione Enter para voltar");
                     string temp = Console.ReadLine();
                     if (temp == "") return null;
-                    Alunos = new List<Aluno>(Convert.ToInt32(temp));
+                    Alunos = new List<Aluno>(MaxAlunos=Convert.ToInt32(temp));
                 }
                 catch (Exception)
                 {
@@ -71,6 +71,11 @@ namespace Projeto.teste.Entidades
         }     
         public Aluno AtribuirAluno(List<Aluno> alunos)
         {
+            if (Alunos.Count() == MaxAlunos)
+            {
+                Console.WriteLine("Turma ja esta cheia remova um para continuar");
+                return null;
+            } 
             Aluno aluno = null;
             do
             {

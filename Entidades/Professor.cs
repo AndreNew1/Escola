@@ -32,9 +32,10 @@ namespace Projeto.teste.Entidades
                     Console.WriteLine("Digite os Valores validos!!!");
                 }
             }
-
+            
             return this;
         }
+        
 
         public override string ToString()=> $"Nome:{Nome}  Idade:{Idade}  Sexo:{Sexo}  N° de Registro:{NumeroMatricula} Nome do Coordenador:{Coordenador.Nome}";
         
