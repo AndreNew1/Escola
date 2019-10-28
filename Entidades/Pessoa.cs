@@ -37,11 +37,15 @@ namespace Projeto.teste.Entidades
                 {
                     Console.WriteLine($"Digite a Idade de {Nome}");
                     Idade = Convert.ToInt32(Console.ReadLine());
-                    if (Idade < IdadeMin || Idade > IdadeMax) Console.WriteLine($"Idade deve ser entre {IdadeMin} e {IdadeMax}");
+                    if (Idade < IdadeMin || Idade > IdadeMax)
+                    {
+                        Console.WriteLine("Idade Invalida");
+                        Console.WriteLine($"Idade deve ser entre {IdadeMin} e {IdadeMax}");
+                    }
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Digite o Valor valido");
+                    Console.WriteLine("Digite um numero valido");
                 }
             }
         }        

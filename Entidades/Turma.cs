@@ -68,42 +68,42 @@ namespace Projeto.teste.Entidades
             }
 
             return Professor;
-        }     
+        }
         public Aluno AtribuirAluno(List<Aluno> alunos)
         {
             if (Alunos.Count() == MaxAlunos)
             {
                 Console.WriteLine("Turma ja esta cheia remova um para continuar");
                 return null;
-            } 
+            }
             Aluno aluno = null;
-            do
+            Console.ResetColor();
+            try
             {
-                Console.ResetColor();
-                try
-                {
-                    Console.WriteLine("Alunos sem Turmas");
-                    alunos.ForEach(c => Console.WriteLine($"Nome:{c.Nome} N° de Registro:{c.NumeroMatricula}"));
-                    Console.WriteLine("Digite o Numero de Registro Ou Pressione Enter");
-                    string decisao = Console.ReadLine();
-                    if (decisao == "") return null;
-                    aluno = alunos.First(x => x.NumeroMatricula == Convert.ToInt32(decisao));
-                }
-                catch (ArgumentException)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Aluno não existe\nDigite Novamente");
-                }
-                catch (Exception)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Digite Valores Validos!!!");
-                }
+                Console.WriteLine("Alunos sem Turmas");
+                alunos.ForEach(c => Console.WriteLine($"Nome:{c.Nome} N° de Registro:{c.NumeroMatricula}"));
+                Console.WriteLine("Digite o Numero de Registro Ou Pressione Enter");
+                string decisao = Console.ReadLine();
+                if (decisao == "") return null;
+                aluno = alunos.First(x => x.NumeroMatricula == Convert.ToInt32(decisao));
+                alunos.Remove(aluno);
+                Alunos.Add(aluno);
 
-            } while (aluno == null);
-            alunos.Remove(aluno);
-            Alunos.Add(aluno);
-            return aluno;
+            }
+            catch (ArgumentException)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Aluno não existe\nDigite Novamente");
+                AtribuirAluno(alunos);
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Digite Valores Validos!!!");
+                AtribuirAluno(alunos);
+            }
+            return aluno;   
+
         }
         public Aluno RemoverAluno(List<Aluno> alunos)
         {

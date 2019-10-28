@@ -27,6 +27,10 @@ namespace Projeto.teste.Entidades
                     Console.WriteLine("Digite o Numero do Coordenador:");
                     Coordenador = Escola.Coordenadores.First(x => x.NumeroMatricula == Convert.ToInt32(Console.ReadLine()));
                 }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Coordenador não existe");
+                }
                 catch (Exception)
                 {
                     Console.WriteLine("Digite os Valores validos!!!");

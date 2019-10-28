@@ -355,7 +355,7 @@ namespace Projeto.teste.Util
                                 Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
                                 string decisao = Console.ReadLine();
                                 if (decisao == "") break;
-                                Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).ToString();
+                                Console.WriteLine(Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).ToString());
                                 Console.WriteLine("Aperte enter para continuar");
                                 Console.ReadLine();
                                 break;
