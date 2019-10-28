@@ -164,24 +164,28 @@ namespace Projeto.teste.Util
                 case "3":
                     {
                         if (Turmas.Count == 0) { Console.WriteLine("Registre uma turma e um professor primeiro"); break; }
-                        try
+                        while (true)
                         {
-                            Console.WriteLine("Turmas:");
-                            Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
-                            Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
-                            string decisao = Console.ReadLine();
-                            if (decisao == "") break;
-                            Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirProfessor(this);
-                        }
-                        catch (ArgumentNullException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Turma não existe");
-                        }
-                        catch (Exception)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Valores Invalidos");
+                            try
+                            {
+                                Console.WriteLine("Turmas:");
+                                Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
+                                Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
+                                string decisao = Console.ReadLine();
+                                if (decisao == "") break;
+                                Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirProfessor(this);
+                                break;
+                            }
+                            catch (ArgumentNullException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Turma não existe");
+                            }
+                            catch (Exception)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Valores Invalidos");
+                            }
                         }
                         break;
                     }
@@ -249,48 +253,56 @@ namespace Projeto.teste.Util
                 case "3":
                     {
                         if (Turmas.Count == 0) { Console.WriteLine("Registre uma turma primeiro"); break; }
-                        try
+                        while (true)
                         {
-                            Console.WriteLine("Turmas:");
-                            Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
-                            Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
-                            string decisao = Console.ReadLine();
-                            if (decisao == "") break;
-                            Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirCoordenador(Coordenadores);
-                        }
-                        catch (ArgumentNullException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Turma não existe");
-                        }
-                        catch (Exception)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Valores Invalidos");
+                            try
+                            {
+                                Console.WriteLine("Turmas:");
+                                Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
+                                Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
+                                string decisao = Console.ReadLine();
+                                if (decisao == "") break;
+                                Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirCoordenador(Coordenadores);
+                                break;
+                            }
+                            catch (ArgumentNullException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Turma não existe");
+                            }
+                            catch (Exception)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Valores Invalidos");
+                            }
                         }
                         break;
                     }
                 case "4":
                     {
                         if (Turmas.Count == 0) { Console.WriteLine("Registre uma turma primeiro"); break; }
-                        try
+                        while (true)
                         {
-                            Console.WriteLine("Turmas:");
-                            Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
-                            Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
-                            string decisao = Console.ReadLine();
-                            if (decisao == "") break;
-                            Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).RemoverCoordenador();
-                        }
-                        catch (ArgumentNullException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Turma não existe");
-                        }
-                        catch (Exception)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Valores Invalidos");
+                            try
+                            {
+                                Console.WriteLine("Turmas:");
+                                Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
+                                Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
+                                string decisao = Console.ReadLine();
+                                if (decisao == "") break;
+                                Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).RemoverCoordenador();
+                                break;
+                            }
+                            catch (ArgumentNullException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Turma não existe");
+                            }
+                            catch (Exception)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Valores Invalidos");
+                            }
                         }
                         break;
                     }
@@ -334,24 +346,30 @@ namespace Projeto.teste.Util
                 case "3":
                     {
                         if (Turmas.Count == 0) { Console.WriteLine("Registre uma turma primeiro"); break; }
-                        try
+                        while (true)
                         {
-                            Console.WriteLine("Turmas:");
-                            Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
-                            Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
-                            string decisao = Console.ReadLine();
-                            if (decisao == "") break;
-                            Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).AtribuirCoordenador(Coordenadores);
-                        }
-                        catch (ArgumentNullException)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Turma não existe");
-                        }
-                        catch (Exception)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Valores Invalidos");
+                            try
+                            {
+                                Console.WriteLine("Turmas:");
+                                Turmas.ForEach(c => Console.WriteLine($"N° da Turma:{c.NumTurma}"));
+                                Console.WriteLine("Digite o numero da turma Ou pressione Enter para voltar");
+                                string decisao = Console.ReadLine();
+                                if (decisao == "") break;
+                                Turmas.First(x => x.NumTurma == Convert.ToInt32(decisao)).ToString();
+                                Console.WriteLine("Aperte enter para continuar");
+                                Console.ReadLine();
+                                break;
+                            }
+                            catch (ArgumentNullException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Turma não existe");
+                            }
+                            catch (Exception)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Valores Invalidos");
+                            }
                         }
                         break;
                     }
